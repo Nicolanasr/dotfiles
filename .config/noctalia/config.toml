@@ -1,0 +1,178 @@
+[accessibility]
+ui_scale = 1.15
+
+[bar.default]
+# Replicates the centered island layout from Nothing OS
+start = [ "group:left_widgets" ]
+center = [ "group:island_center" ]
+end = [ "group:right_status" ]
+
+concave_edge_corners = false
+thickness = 38
+scale = 1.0
+margin_edge = 8
+margin_ends = 12
+
+radius_top_left = 18
+radius_top_right = 18
+radius_bottom_left = 18
+radius_bottom_right = 18
+
+    # Left grouped icons (launcher + quick action)
+    [[bar.default.capsule_group]]
+    id = "left_widgets"
+    members = [ "launcher", "active_window" ]
+    fill = "surface"
+    border = ""
+    opacity = 0.85
+    padding = 8.0
+
+    # The prominent center pill (Clock + Workspace dots)
+    [[bar.default.capsule_group]]
+    id = "island_center"
+    members = [ "clock", "workspaces" ]
+    fill = "surface"
+    border = ""
+    opacity = 0.95
+    padding = 10.0
+
+    # Right side status icons (Network, Volume, Battery/Temp, Session)
+    [[bar.default.capsule_group]]
+    id = "right_status"
+    members = [ "tray", "network", "volume", "temp", "session" ]
+    fill = "surface"
+    border = ""
+    opacity = 0.85
+    padding = 8.0
+
+[shell]
+clipboard_image_action_command = "satty -f -"
+launch_apps_as_systemd_services = true
+polkit_agent = true
+settings_show_advanced = true
+
+    [shell.greeter_sync]
+    auto_sync = true
+
+    [shell.panel]
+    open_near_click_control_center = true
+    session_placement = "floating"
+    session_position = "center"
+
+    [shell.screenshot]
+    copy_to_clipboard = false
+    pipe_command = "satty -f -"
+    pipe_to_command = true
+    save_to_file = false
+
+    [[shell.session.actions]]
+    action = "lock"
+    countdown_seconds = 0.0
+    enabled = true
+    shortcut = "1"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "logout"
+    countdown_seconds = 0.0
+    enabled = true
+    shortcut = "2"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "lock_and_suspend"
+    countdown_seconds = 3.0
+    enabled = true
+    shortcut = "3"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "reboot"
+    countdown_seconds = 3.0
+    enabled = true
+    shortcut = "4"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "shutdown"
+    countdown_seconds = 3.0
+    enabled = true
+    shortcut = "5"
+    variant = "destructive"
+
+[audio]
+enable_overdrive = true
+
+[system.monitor]
+gpu_poll_seconds = 2
+
+[theme]
+mode = "dark"
+# Disable dynamic wallpaper extraction to prevent colorful tints
+source = "fixed"
+# Primary surfaces set to Nothing OS deep blacks & slate pills
+surface = "#141416"
+on_surface = "#f5f5f5"
+primary = "#ffffff"
+on_primary = "#0c0c0c"
+secondary = "#8e8e93"
+on_secondary = "#1c1c1e"
+# The iconic Nothing Red
+error = "#d71921"
+font_family = "Ndot77JPExtended"
+font_family_ui = "Inter Variable"
+
+    [theme.templates]
+    builtin_ids = [ "btop", "gtk3", "gtk4", "kcolorscheme", "kitty", "qt", "alacritty" ]
+
+[widget.clock]
+color = "primary"
+# Minimalist time format for dot-matrix typography
+format = "{:%H:%M}"
+
+[widget.launcher]
+color = "primary"
+
+[widget.media]
+hide_when_no_media = true
+title_scroll = "on_hover"
+
+[widget.network]
+color = "secondary"
+
+[widget.notifications]
+color = "secondary"
+
+[widget.session]
+color = "error"
+
+[widget.spacer_1]
+type = "spacer"
+
+[widget.temp]
+show_value = false
+
+[widget.sysmon_2]
+glyph = "gpu-usage"
+show_value = false
+stat = "gpu_temp"
+type = "sysmon"
+
+[widget.sysmon_3]
+glyph = "cpu-2"
+stat = "ram_used"
+type = "sysmon"
+
+[widget.tray]
+capsule = false
+
+[widget.volume]
+color = "secondary"
+
+[widget.workspaces]
+# Circular dot indicators matching Nothing OS UI pips
+active_pill_size = 2.0
+inactive_pill_size = 1.0
+pill_scale = 0.65
+capsule = false
+show_labels = false

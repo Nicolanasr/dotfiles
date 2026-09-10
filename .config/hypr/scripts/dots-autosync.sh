@@ -27,7 +27,7 @@ if ! $DOTS diff-index --quiet --cached HEAD --; then
   $DOTS commit -m "chore(auto-sync): $TIMESTAMP"
   $DOTS push origin main
 
-  # Optional: display a quiet desktop notification on completion
+  # 1 Optional: display a quiet desktop notification on completion
   if command -v notify-send &>/dev/null; then
     notify-send -a "Dotfiles" "GitHub Sync" "Configuration backed up successfully." -i git
   fi

@@ -7,7 +7,7 @@ exec >>"$LOGFILE" 2>&1
 
 echo "=== Sync Started: $(date) ==="
 
-# 2. Tell Git where your SSH key is directly (bypasses missing ssh-agent at login)
+# 2.Tell Git where your SSH key is directly (bypasses missing ssh-agent at login)
 export GIT_SSH_COMMAND="ssh -i $HOME/.ssh/id_ed25519 -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new"
 
 DOTS="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"

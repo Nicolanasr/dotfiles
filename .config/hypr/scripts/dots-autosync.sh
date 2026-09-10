@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# 1. Log all output to ~/.cache/dots-autosync.log for easy debugging
+# 1.Log all output to ~/.cache/dots-autosync.log for easy debugging
 LOGFILE="$HOME/.cache/dots-autosync.log"
 mkdir -p "$HOME/.cache"
 exec >>"$LOGFILE" 2>&1
@@ -48,5 +48,3 @@ else
 fi
 
 echo "=== Sync Finished ==="
-EOF
-chmod +x ~/.config/hypr/scripts/dots-autosync.sh

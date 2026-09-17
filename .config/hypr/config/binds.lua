@@ -15,10 +15,10 @@ hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen())
 hl.bind(mainMod .. " + SHIFT + V", hl.dsp.layout("togglesplit"))
 
 -- Change focus
-hl.bind(mainMod .. " + LEFT", hl.dsp.focus({ direction = "left" }))
-hl.bind(mainMod .. " + RIGHT", hl.dsp.focus({ direction = "right" }))
-hl.bind(mainMod .. " + UP", hl.dsp.focus({ direction = "up" }))
-hl.bind(mainMod .. " + Down", hl.dsp.focus({ direction = "down" }))
+-- hl.bind(mainMod .. " + LEFT", hl.dsp.focus({ direction = "left" }))
+-- hl.bind(mainMod .. " + RIGHT", hl.dsp.focus({ direction = "right" }))
+-- hl.bind(mainMod .. " + UP", hl.dsp.focus({ direction = "up" }))
+-- hl.bind(mainMod .. " + Down", hl.dsp.focus({ direction = "down" }))
 hl.bind(mainMod .. " + h", hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + l", hl.dsp.focus({ direction = "right" }))
 hl.bind(mainMod .. " + k", hl.dsp.focus({ direction = "up" }))
@@ -31,10 +31,10 @@ hl.bind(mainMod .. " + SHIFT + k", hl.dsp.window.move({ direction = "u" }))
 hl.bind(mainMod .. " + SHIFT + l", hl.dsp.window.move({ direction = "r" }))
 hl.bind(mainMod .. " + SHIFT + h", hl.dsp.window.move({ direction = "l" }))
 hl.bind(mainMod .. " + SHIFT + j", hl.dsp.window.move({ direction = "d" }))
-hl.bind(mainMod .. " + SHIFT + Up", hl.dsp.window.move({ direction = "u" }))
-hl.bind(mainMod .. " + SHIFT + Right", hl.dsp.window.move({ direction = "r" }))
-hl.bind(mainMod .. " + SHIFT + Left", hl.dsp.window.move({ direction = "l" }))
-hl.bind(mainMod .. " + SHIFT + Down", hl.dsp.window.move({ direction = "d" }))
+-- hl.bind(mainMod .. " + SHIFT + Up", hl.dsp.window.move({ direction = "u" }))
+-- hl.bind(mainMod .. " + SHIFT + Right", hl.dsp.window.move({ direction = "r" }))
+-- hl.bind(mainMod .. " + SHIFT + Left", hl.dsp.window.move({ direction = "l" }))
+-- hl.bind(mainMod .. " + SHIFT + Down", hl.dsp.window.move({ direction = "d" }))
 hl.bind(mainMod .. " + CONTROL + SHIFT + Right", hl.dsp.window.move({ workspace = "m+1" }))
 hl.bind(mainMod .. " + CONTROL + SHIFT + Left", hl.dsp.window.move({ workspace = "m-1" }))
 hl.bind(mainMod .. " + CONTROL + SHIFT + mouse_up", hl.dsp.window.move({ workspace = "m-1" }))
@@ -230,3 +230,16 @@ hl.bind("switch:off:Lid Switch", hl.dsp.exec_cmd("hyprctl dispatch dpms on"))
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("noctalia msg volume-up"), { locked = true })
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("noctalia msg volume-down"), { locked = true })
 --hl.bind("XF86AudioMute", hl.dsp.exec_cmd("noctalia msg volume-mute"), { locked = true })
+--
+-- Mac-like Line Selection (Cmd + Shift + Left/Right)
+-- Sends: Shift + Home / Shift + End
+hl.bind(
+	"SUPER + SHIFT + Left",
+	hl.dsp.send_shortcut({ mods = "SHIFT", key = "Home", window = "activewindow" }),
+	{ description = "Select to start of line" }
+)
+hl.bind(
+	"SUPER + SHIFT + Right",
+	hl.dsp.send_shortcut({ mods = "SHIFT", key = "End", window = "activewindow" }),
+	{ description = "Select to end of line" }
+)

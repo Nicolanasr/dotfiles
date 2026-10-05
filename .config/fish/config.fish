@@ -29,3 +29,6 @@ function dots-sync -d "Stage modified configs, commit, and push to GitHub"
     git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME commit -m "$msg"
     git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME push origin main
 end
+
+# Generated for envman. Do not edit.
+test -s ~/.config/envman/load.fish; and source ~/.config/envman/load.fish
